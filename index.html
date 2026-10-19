@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pizza Rush</title>
+<style>body{margin:0;background:#18181B;color:#fff;font-family:system-ui;text-align:center}canvas{background:#2b2b30;display:block;margin:10px auto;max-width:100%;touch-action:none}</style></head>
+<body><h2>Pizza Rush</h2><canvas id="c" width="480" height="640"></canvas><p>Arrows/A-D or drag to move. Catch toppings, dodge burnt crusts.</p>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');const W=480,H=640;
+let p,items,score,lives,t,best=+localStorage.prBest||0,state='title',speed;
+function reset(){p={x:W/2,w:90};items=[];score=0;lives=3;t=0;speed=2;state='play'}
+const keys={};onkeydown=e=>{keys[e.key]=1;if(state!='play'&&(e.key==' '||e.key=='Enter'))reset()};onkeyup=e=>keys[e.key]=0;
+c.onpointerdown=c.onpointermove=e=>{if(state!='play'){if(e.type=='pointerdown')reset();return}const r=c.getBoundingClientRect();if(e.buttons||e.pointerType=='touch')p.x=(e.clientX-r.left)*W/r.width};
+const T=[['#e33','pepperoni',1],['#fc3','cheese',1],['#3a3','pepper',2],['#a52','burnt',-1]];
+function spawn(){const k=Math.random()<.22?T[3]:T[Math.floor(Math.random()*3)];items.push({x:20+Math.random()*(W-40),y:-20,k,v:speed+Math.random()})}
+function step(){if(state!='play')return;t++;if(t%Math.max(18,45-score/5|0)==0)spawn();speed=2+score/40;
+if(keys.ArrowLeft||keys.a)p.x-=7;if(keys.ArrowRight||keys.d)p.x+=7;p.x=Math.max(p.w/2,Math.min(W-p.w/2,p.x));
+for(const i of items){i.y+=i.v;if(i.y>H-60&&i.y<H-30&&Math.abs(i.x-p.x)<p.w/2+10){i.dead=1;if(i.k[2]<0)lives--;else score+=i.k[2]}else if(i.y>H+20){i.dead=1;if(i.k[2]>0&&--lives<0)lives=0}}
+items=items.filter(i=>!i.dead);if(lives<=0){state='over';if(score>best){best=score;localStorage.prBest=best}}}
+function draw(){x.clearRect(0,0,W,H);x.fillStyle='#d9a066';x.beginPath();x.ellipse(p.x,H-40,p.w/2,14,0,0,7);x.fill();
+for(const i of items){x.fillStyle=i.k[0];x.beginPath();x.arc(i.x,i.y,12,0,7);x.fill()}
+x.fillStyle='#fff';x.font='20px system-ui';x.textAlign='left';x.fillText('Score '+score,10,28);x.fillText('Lives '+lives,10,52);x.textAlign='right';x.fillText('Best '+best,W-10,28);
+if(state!='play'){x.textAlign='center';x.font='36px system-ui';x.fillText(state=='title'?'PIZZA RUSH':'GAME OVER',W/2,H/2-20);x.font='20px system-ui';x.fillText('Tap or press Space to start',W/2,H/2+20)}}
+(function loop(){step();draw();requestAnimationFrame(loop)})();
+</script></body></html>
