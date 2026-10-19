@@ -23,3 +23,8 @@
 - Added: game over screen shows final score.
 - Fixed: red burnt-crust flash no longer fades while paused.
 - Header now v0.8. No balance numbers changed.
+
+## Build 0.9 (2026-10-19)
+- Added: "LEVEL N" banner (90 frames, fades) + chime when Level goes up.
+- Fixed: dragging no longer moves the tray while paused.
+- Header now v0.9. No balance numbers changed.
