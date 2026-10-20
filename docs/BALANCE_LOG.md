@@ -38,3 +38,7 @@
 - Added: gold "COMBO!" popup + chime when a combo reaches 5 (the +1 bonus starts).
 - Fixed: game now auto-pauses when the tab is hidden (mobile app switch / tab change), not just on window blur.
 - Header now v1.1. No balance numbers changed.
+
+## Build 1.2 (2026-10-20)
+- Added: game over screen shows toppings caught and best combo for the run.
+- Header now v1.2. No balance numbers changed.
