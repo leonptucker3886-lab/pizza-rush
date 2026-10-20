@@ -42,3 +42,7 @@
 ## Build 1.2 (2026-10-20)
 - Added: game over screen shows toppings caught and best combo for the run.
 - Header now v1.2. No balance numbers changed.
+
+## Build 1.3 (2026-10-20)
+- Added: lives shown as pink heart icons on the HUD.
+- Header now v1.3. No balance numbers changed.
