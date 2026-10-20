@@ -51,3 +51,7 @@
 - Added: "+1 LIFE" and "WIDE!" popups when you catch a heart or wide box.
 - Added: tray blinks blue in the last 2s of the wide power-up.
 - Header now v1.4. No balance numbers changed.
+
+## Build 1.5 (2026-10-20)
+- Added: red "-1 LIFE" popup when you catch a burnt crust.
+- Header now v1.5. No balance numbers changed.
