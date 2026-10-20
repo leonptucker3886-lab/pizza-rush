@@ -55,3 +55,7 @@
 ## Build 1.5 (2026-10-20)
 - Added: red "-1 LIFE" popup when you catch a burnt crust.
 - Header now v1.5. No balance numbers changed.
+
+## Build 1.6 (2026-10-20)
+- Added: catching a heart at max lives (5) now shows "LIVES FULL" instead of a misleading "+1 LIFE".
+- Header now v1.6. No balance numbers changed.
