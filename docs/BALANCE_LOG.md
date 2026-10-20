@@ -28,3 +28,13 @@
 - Added: "LEVEL N" banner (90 frames, fades) + chime when Level goes up.
 - Fixed: dragging no longer moves the tray while paused.
 - Header now v0.9. No balance numbers changed.
+
+## Build 1.0 (2026-10-20)
+- Added: red "MISS" popup where a missed topping falls.
+- Added: game over screen shows the level reached.
+- Header now v1.0. No balance numbers changed.
+
+## Build 1.1 (2026-10-20)
+- Added: gold "COMBO!" popup + chime when a combo reaches 5 (the +1 bonus starts).
+- Fixed: game now auto-pauses when the tab is hidden (mobile app switch / tab change), not just on window blur.
+- Header now v1.1. No balance numbers changed.
